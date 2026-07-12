@@ -9,7 +9,7 @@ print("Weapon data last reviewed: 06/12/2025\n")
 
 # This section of the code typically has issues, monitor regulary to ensure functionality \/
 
-with open (r"F:\ProgramReliantFiles\user_data.txt" , "r") as F:   # Opens the user data file
+with open ("users.txt" , "r") as F:   # Opens the user data file
     users = F.read().splitlines()
 
 # Section end /\
