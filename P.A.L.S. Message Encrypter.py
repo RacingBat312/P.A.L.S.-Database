@@ -1,4 +1,4 @@
-#P.A.L.S. Message Encoder Ver 1.0
+#P.A.L.S. Message Encrypter Ver 1.0
 #'Handle this with care as well pls' -- Pat C
 
 number_to_letter = {
