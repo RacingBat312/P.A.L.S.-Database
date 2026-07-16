@@ -78,18 +78,76 @@ number_to_letter = {
 "=" : 74
 }
 
+import os
+import time
+
 letter_to_number = {letter: number for letter, number in number_to_letter.items()}
 
-with open(r"F:\ProgramReliantFiles\encode.txt", "r") as f:
-    text = f.read().strip("[]")
-    letters = text.split("#")
+file_path = r"F:\ProgramReliantFiles\encode.txt"
+drive = os.path.splitdrive(file_path)[0] + "\\"
 
-letters = []
-for ch in text:
-    letters.append(ch)
-    
-encoded = []
-for ch in letters:
-    encoded.append(str(letter_to_number.get(ch)))
+print(f"Waiting for drive {drive} and file {file_path}...")
 
-print("[" + "#".join(encoded) + "]")
+while True:
+
+    drive_available = os.path.exists(drive)
+    file_available = os.path.exists(file_path)
+
+    if not drive_available:
+        print(f"Drive {drive} is not available. Please insert or connect the drive.")
+    elif not file_available:
+        print(f"File not found: {file_path}. Waiting for the file to appear.")
+
+    time.sleep(5)
+
+    if drive_available and file_available:
+        print("\nFile found!")
+        print("Checking message for non ecryptable characters...\n")
+        import sys
+        import time
+        from time import sleep
+        for i in range(101):
+            sys.stdout.write('\r')
+            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+            sys.stdout.flush()
+            sleep(0.07)
+        print("\n")
+        print("Verfication Successful!")
+        print("\n")
+        print("Inspecting codex for character keys...\n")
+        import sys
+        import time
+        from time import sleep
+        for i in range(101):
+            sys.stdout.write('\r')
+            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+            sys.stdout.flush()
+            sleep(0.02)
+        print("\n")
+        print("Inspection complete.")
+        print("\n")
+        print("Encoding message...\n")
+        import sys
+        import time
+        from time import sleep
+        for i in range(101):
+            sys.stdout.write('\r')
+            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+            sys.stdout.flush()
+            sleep(0.15)
+        print("\n")
+
+        with open(file_path, "r") as f:
+            text = f.read().strip("[]")
+
+        letters = []
+        for ch in text:
+            letters.append(ch)
+            
+        encoded = []
+        for ch in letters:
+            encoded.append(str(letter_to_number.get(ch)))
+
+        print("[" + "#".join(encoded) + "]")
+        print("\n\n")
+        break

@@ -85,8 +85,71 @@ with open(r"F:\ProgramReliantFiles\message.txt", "r") as f:
     text = f.read().strip("[]")
     numbers = text.split("#")
 
-translated = []
-for n in numbers:
-    translated.append(number_to_letter.get(int(n)))
+import os 
+import time
 
-print("[" + "".join(translated) + "]")
+file_path = r"F:\ProgramReliantFiles\message.txt"
+drive = os.path.splitdrive(file_path)[0] + "\\"
+
+print(f"Waiting for drive {drive} and file {file_path}...")
+
+while True:
+
+    drive_available = os.path.exists(drive)
+    file_available = os.path.exists(file_path)
+
+    if not drive_available:
+        print(f"Drive {drive} is not available. Please insert or connect the drive.")
+    elif not file_available:
+        print(f"File not found: {file_path}. Waiting for the file to appear.")
+
+    time.sleep(5)
+
+    if drive_available and file_available:
+        print("\nFile found!\n")
+        print("\nChecking message for non translatable characters...\n")
+        import sys
+        import time
+        from time import sleep
+        for i in range(101):
+            sys.stdout.write('\r')
+            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+            sys.stdout.flush()
+            sleep(0.07)
+        print("\n")
+        print("Verfication Successful!")
+        print("\n")
+        print("Inspecting codex for character keys...\n")
+        import sys
+        import time
+        from time import sleep
+        for i in range(101):
+            sys.stdout.write('\r')
+            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+            sys.stdout.flush()
+            sleep(0.02)
+        print("\n")
+        print("Inspection complete.")
+        print("\n")
+        print("Translating message...\n")
+        import sys
+        import time
+        from time import sleep
+        for i in range(101):
+            sys.stdout.write('\r')
+            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+            sys.stdout.flush()
+            sleep(0.15)
+        print("\n")
+        print("")
+        
+        with open(file_path, "r") as f:
+            text = f.read().strip("[]")
+
+        translated = []
+        for n in numbers:
+            translated.append(number_to_letter.get(int(n)))
+
+        print("[" + "".join(translated) + "]")
+        print("\n\n\n")
+        break
