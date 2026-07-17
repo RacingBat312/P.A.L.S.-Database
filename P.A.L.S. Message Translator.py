@@ -87,6 +87,8 @@ import time
 file_path = r"F:\ProgramReliantFiles\message.txt"
 drive = os.path.splitdrive(file_path)[0] + "\\"
 
+print("P.A.L.S. Message Translator Ver 1.0")
+
 print(f"Waiting for drive {drive} and file {file_path}...")
 
 while True:
@@ -148,7 +150,7 @@ while True:
             translated.append(number_to_letter.get(int(n)))
 
         print("[" + "".join(translated) + "]")
-        print("\n\n\n")
+        print("\n")
         break
 
-input()
+input("Press ENTER to exit program")

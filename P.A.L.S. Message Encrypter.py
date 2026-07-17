@@ -86,6 +86,8 @@ letter_to_number = {letter: number for letter, number in number_to_letter.items(
 file_path = r"F:\ProgramReliantFiles\encode.txt"
 drive = os.path.splitdrive(file_path)[0] + "\\"
 
+print("P.A.L.S. Message Encrypter Ver 1.0\n")
+
 print(f"Waiting for drive {drive} and file {file_path}...")
 
 while True:
@@ -149,7 +151,7 @@ while True:
             encoded.append(str(letter_to_number.get(ch)))
 
         print("[" + "#".join(encoded) + "]")
-        print("\n\n")
+        print("\n")
         break
 
-input()
+input("Press ENTER to exit program")
