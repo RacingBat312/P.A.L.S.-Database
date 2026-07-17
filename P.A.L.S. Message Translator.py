@@ -81,10 +81,6 @@ letter_to_number = {
 
 number_to_letter = {value: key for key, value in letter_to_number.items()}
 
-with open(r"F:\ProgramReliantFiles\message.txt", "r") as f:
-    text = f.read().strip("[]")
-    numbers = text.split("#")
-
 import os 
 import time
 
@@ -145,6 +141,7 @@ while True:
         
         with open(file_path, "r") as f:
             text = f.read().strip("[]")
+            numbers = text.split("#")
 
         translated = []
         for n in numbers:
