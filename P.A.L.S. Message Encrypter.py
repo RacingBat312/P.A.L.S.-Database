@@ -151,3 +151,5 @@ while True:
         print("[" + "#".join(encoded) + "]")
         print("\n\n")
         break
+
+input()

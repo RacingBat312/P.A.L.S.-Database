@@ -150,3 +150,5 @@ while True:
         print("[" + "".join(translated) + "]")
         print("\n\n\n")
         break
+
+input()
