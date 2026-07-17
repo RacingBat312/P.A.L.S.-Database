@@ -103,7 +103,7 @@ while True:
     time.sleep(5)
 
     if drive_available and file_available:
-        print("\nFile found!")
+        print("\nFile found!\n\n")
         print("Checking message for non ecryptable characters...\n")
         import sys
         import time
