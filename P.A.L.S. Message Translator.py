@@ -1,4 +1,4 @@
-#P.A.L.S. Message Translator Ver 1.0
+#P.A.L.S. Message Translator Ver 1.5
 #'Handle with care' --- Pat C
 
 letter_to_number = {
