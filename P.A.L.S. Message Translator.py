@@ -83,15 +83,17 @@ number_to_letter = {value: key for key, value in letter_to_number.items()}
 
 import os 
 import time
+import sys
 
 file_path = r"F:\ProgramReliantFiles\message.txt"
 drive = os.path.splitdrive(file_path)[0] + "\\"
 
 print("P.A.L.S. Message Translator Ver 1.0\n")
-print("Either read file \"/reafil/\" or manual input \"/maninp/\"\n")
-option = input("Please enter method of extraction>>> ") 
+print("Either read file \"/reafil/\" or manual input \"/maninp/\"\n") 
 
 while True:
+
+    option = input("Please enter method of extraction>>> ") 
 
     if option == "/reafil/":
             
@@ -104,10 +106,11 @@ while True:
                 file_available = os.path.exists(file_path)
 
                 if not drive_available:
-                    print(f"Drive {drive} is not available. Please insert or connect the drive.")
+                    print(f"\nDrive {drive} is not available. Please insert or connect the drive.")
+                
                 elif not file_available:
-                    print(f"File not found: {file_path}. Waiting for the file to appear.")
-
+                    print(f"\nFile not found: {file_path}. Waiting for the file to appear.")
+                    
                 time.sleep(5)
 
                 if drive_available and file_available:
@@ -158,7 +161,9 @@ while True:
 
                     print("[" + "".join(translated) + "]")
                     print("\n")
-                    break
+                    input("Press ENTER to exit program")
+                    sys.exit()
+                    
 
     elif option == "/maninp/":
             
@@ -178,7 +183,7 @@ while True:
         print("\n")
         print("Verfication Successful!")
         print("\n")
-        print("Inspecting codex for character keys...\n")
+        print("Inspecting codex for character key values...\n")
         import sys
         import time
         from time import sleep
@@ -214,8 +219,8 @@ while True:
         input("Press ENTER to exit program")
 
     else:
-        print("\nInvalid command, enter either \"/reafil/\" or \"/maninp/\"\n")
-        option = input("Please enter method of extraction>>> ")
+        print("Invalid command, enter either \"/reafil/\" or \"/maninp/\"\n")
+        option
 
 
 
