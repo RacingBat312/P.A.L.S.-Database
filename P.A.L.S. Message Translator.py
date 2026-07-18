@@ -88,23 +88,84 @@ file_path = r"F:\ProgramReliantFiles\message.txt"
 drive = os.path.splitdrive(file_path)[0] + "\\"
 
 print("P.A.L.S. Message Translator Ver 1.0\n")
-
-print(f"Waiting for drive {drive} and file {file_path}...")
+print("Either read file \"/reafil/\" or manual input \"/maninp/\"\n")
+option = input("Please enter method of extraction>>> ") 
 
 while True:
 
-    drive_available = os.path.exists(drive)
-    file_available = os.path.exists(file_path)
+    if option == "/reafil/":
+            
+            print("\n")
+            print(f"Waiting for drive {drive} and file {file_path}...")
 
-    if not drive_available:
-        print(f"Drive {drive} is not available. Please insert or connect the drive.")
-    elif not file_available:
-        print(f"File not found: {file_path}. Waiting for the file to appear.")
+            while True:
 
-    time.sleep(5)
+                drive_available = os.path.exists(drive)
+                file_available = os.path.exists(file_path)
 
-    if drive_available and file_available:
-        print("\nFile found!\n")
+                if not drive_available:
+                    print(f"Drive {drive} is not available. Please insert or connect the drive.")
+                elif not file_available:
+                    print(f"File not found: {file_path}. Waiting for the file to appear.")
+
+                time.sleep(5)
+
+                if drive_available and file_available:
+                    print("\nFile found!\n")
+                    print("\nChecking message for non translatable characters...\n")
+                    import sys
+                    import time
+                    from time import sleep
+                    for i in range(101):
+                        sys.stdout.write('\r')
+                        sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+                        sys.stdout.flush()
+                        sleep(0.07)
+                    print("\n")
+                    print("Verfication Successful!")
+                    print("\n")
+                    print("Inspecting codex for character keys...\n")
+                    import sys
+                    import time
+                    from time import sleep
+                    for i in range(101):
+                        sys.stdout.write('\r')
+                        sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+                        sys.stdout.flush()
+                        sleep(0.02)
+                    print("\n")
+                    print("Inspection complete.")
+                    print("\n")
+                    print("Translating message...\n")
+                    import sys
+                    import time
+                    from time import sleep
+                    for i in range(101):
+                        sys.stdout.write('\r')
+                        sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
+                        sys.stdout.flush()
+                        sleep(0.15)
+                    print("\n")
+                    print("")
+                    
+                    with open(file_path, "r") as f:
+                        text = f.read().strip("[]")
+                        numbers = text.split("#")
+
+                    translated = []
+                    for n in numbers:
+                        translated.append(number_to_letter.get(int(n)))
+
+                    print("[" + "".join(translated) + "]")
+                    print("\n")
+                    break
+
+    elif option == "/maninp/":
+            
+        print("\n")    
+        encoded = input("Enter message>>> ").strip("[]")
+        numbers = encoded.split("#")
+
         print("\nChecking message for non translatable characters...\n")
         import sys
         import time
@@ -140,17 +201,30 @@ while True:
             sleep(0.15)
         print("\n")
         print("")
-        
-        with open(file_path, "r") as f:
-            text = f.read().strip("[]")
-            numbers = text.split("#")
 
         translated = []
+
         for n in numbers:
             translated.append(number_to_letter.get(int(n)))
 
+        print("\n")
         print("[" + "".join(translated) + "]")
         print("\n")
-        break
 
-input("Press ENTER to exit program")
+        input("Press ENTER to exit program")
+
+    else:
+        print("\nInvalid command, enter either \"/reafil/\" or \"/maninp/\"\n")
+        option = input("Please enter method of extraction>>> ")
+
+
+
+
+
+        
+
+        
+
+
+
+        
