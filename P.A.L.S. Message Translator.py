@@ -87,7 +87,7 @@ import time
 file_path = r"F:\ProgramReliantFiles\message.txt"
 drive = os.path.splitdrive(file_path)[0] + "\\"
 
-print("P.A.L.S. Message Translator Ver 1.0")
+print("P.A.L.S. Message Translator Ver 1.0\n")
 
 print(f"Waiting for drive {drive} and file {file_path}...")
 
