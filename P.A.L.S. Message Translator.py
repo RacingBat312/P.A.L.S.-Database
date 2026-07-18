@@ -88,7 +88,7 @@ import sys
 file_path = r"F:\ProgramReliantFiles\message.txt"
 drive = os.path.splitdrive(file_path)[0] + "\\"
 
-print("P.A.L.S. Message Translator Ver 1.0\n")
+print("P.A.L.S. Message Translator Ver 1.5\n")
 print("Either read file \"/reafil/\" or manual input \"/maninp/\"\n") 
 
 while True:
