@@ -216,6 +216,7 @@ while True:
         print("\n")
 
         input("Press ENTER to exit program")
+        sys.exit()
 
     else:
         print("\nInvalid command, enter either \"/reafil/\" or \"/maninp/\"\n")
