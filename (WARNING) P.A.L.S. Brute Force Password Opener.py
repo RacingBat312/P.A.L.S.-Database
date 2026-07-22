@@ -1,31 +1,35 @@
 import itertools
 import string
+import time
 
-characters = string.ascii_letters + string.digits + string.punctuation + string.ascii_lowercase + string.ascii_uppercase
+def brute_force(length = 4):
+    chars = string.ascii_lowercase + string.digits + string.digits
+    attempts = 0
+    s_time = time.time()
 
-target_file = input("\nEnter target Python file name (or full path): ").strip()
-min_length = int(input("\nEnter password min length: "))
-max_length = int(input("Enter password max length: "))
+    for password_length in range(1, length + 1):
+        for guess in itertools.product(chars, repeat = password_length):
+            attempts += 1
+            guess = ''.join(guess)
+            print(f"Trying: {guess}")
 
-if min_length > max_length or min_length <= 0:
-    print("Invalid range. min must be ≤ max and > 0")
+        
+        if guess == real_password:
+            e_time = time.time()
+            return True, guess, attempts, e_time - s_time
+        
+    return False, None, attempts, time.time() - s_time
+
+real_password = "f45"
+
+success, password, attempts, time_takes = brute_force(3)
+
+if success:
+    print(f"\nPassword found : {password}")
+    print(f"Total attempts : {attempts}")
+    print(f"Time taken : {time_takes}")
+
 else:
-    # Open target file in VS Code using proper subprocess syntax
-    print(f"\nOpening {target_file} in VS Code...")
-      
-    count = 0
-    print(f"Writing passwords to: {target_file}\n")
+    print("Password not found")
 
-    with open(target_file, "a", encoding="utf-8") as f:
-        for length in range(min_length, max_length + 1):
-            for combo in itertools.product(characters, repeat=length):
-                password = ''.join(combo)
-                print(f"[{count+1}] {password}")
-                f.write(password + "\n")
-                f.flush()
-                count += 1
 
-    print(f"\n{'='*50}")
-    print(f"Total passwords generated: {count}")
-    print(f"Written to: {target_file}")
-    print(f"{'='*50}")
