@@ -163,6 +163,7 @@ while True:
                     print("\n")
                     input("Press ENTER to exit program")
                     sys.exit()
+                    break
                     
 
     elif option == "/maninp/":

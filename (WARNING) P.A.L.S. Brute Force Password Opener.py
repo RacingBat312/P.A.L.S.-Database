@@ -1,35 +1,29 @@
 import itertools
 import string
-import time
 
-def brute_force(length = 4):
-    chars = string.ascii_lowercase + string.digits + string.digits
-    attempts = 0
-    s_time = time.time()
+characters = string.digits + string.punctuation + string.ascii_lowercase + string.ascii_uppercase
 
-    for password_length in range(1, length + 1):
-        for guess in itertools.product(chars, repeat = password_length):
-            attempts += 1
-            guess = ''.join(guess)
-            print(f"Trying: {guess}")
+min_length = int(input("Enter minimum password length: "))
+max_length = int(input("Enter maximum password length: "))
 
-        
-        if guess == real_password:
-            e_time = time.time()
-            return True, guess, attempts, e_time - s_time
-        
-    return False, None, attempts, time.time() - s_time
-
-real_password = "f45"
-
-success, password, attempts, time_takes = brute_force(3)
-
-if success:
-    print(f"\nPassword found : {password}")
-    print(f"Total attempts : {attempts}")
-    print(f"Time taken : {time_takes}")
+if min_length > max_length or min_length <= 0:
+    print("Invalid range, minimum must be ≤ maximum or > 0")
 
 else:
-    print("Password not found")
+    output_file = "password_list.txt"
+    count = 0
+
+    with open(output_file, "w" , encoding = "utf-8") as f:
+        for length in range(min_length, max_length + 1):
+            for combo in itertools.product(characters, repeat = length):
+                password = ''.join(combo)
+                print(password)
+                f.write(password + "\n")
+                count += 1
+
+
+    print(f"\n Total passwords generated: {count}")
+    print(f"\n Saved to {output_file}")
+    
 
 
